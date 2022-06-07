@@ -1,23 +1,65 @@
 {% extends 'base.html' %}
 {% block content %}
-<main class="container mt-3 mb-5">
-	<h3 class="border-bottom pb-1 my-4">All News</h3>
-    <!-- News Box -->
-    {% for news in all_news %}
-	<div class="card mb-4 shadow">
-	  <div class="row no-gutters">
-	    <div class="col-md-3">
-            <img src="/media/{{news.image}}" class="card-img-top" alt="{{news.title}}">
-	    </div>
-	    <div class="col-md-8">
-	      <div class="card-body">
-	        <h5 class="card-title">{{news.title}}</h5>
-	        <p class="card-text">{{news.detail}}</p>
-	        <p class="card-text"><a href="/detail/{{news.id}}" class="btn btn-sm btn-primary">Read Full</a></p>
-	      </div>
-	    </div>
-	  </div>
-    </div>
-    {% endfor %}
+<main class="container">
+	<h3 class="border-bottom pb-1 my-4">All Movies</h3>
+	<div class="row">
+		<div class="col-sm-2 hidden-xs" style="overflow:auto; padding-right: 2px; padding-left: 2px;">
+			{% for news in all_news %}
+			<!-- News Box -->
+			
+			  <center>
+			    
+					<a href="/detail/{{news.id}}">
+					<img src="media/{{news.image}}" width="128"	height="190" alt="{{news.title}}" border="0">
+					</a>
+			    
+			        <p class="card-title"><a href="/detail/{{news.id}}" >{{news.title}}</a></p>		
+			  </center>
+			<br/>
+			{% endfor %}
+		</div>
+		
+	
+	
+    	<!-- News Box -->
+		
+		<div class="col-sm-8" style=" padding-right: 2px; padding-left: 2px;">
+			{% for news in all_news %}
+			<div class="post" style="font-size: 18px; padding-left: 10px; padding-right: 10px;">
+				<div class="row">
+					<div class="col-xs-4 col-lg-2">
+						<a href="/detail/{{news.id}}">
+						<img src="/media/{{news.image}}"  height="150" class="img-responsive" alt="{{news.title}}" ></a>
+					</div>
+				
+					<div class="col-xs-8 col-lg-10">
+						<h3 class="card-title"><a href="/detail/{{news.id}}">{{news.title}}</a></h3>
+						<br>
+						<p class="card-text">{{news.detail}}</p>
+					</div>    
+				</div>
+			</div>
+			<hr class="green">
+		{% endfor %}
+		</div>
+
+		<div class="col-sm-2 hidden-xs" style="overflow:auto; padding-right: 2px; padding-left: 2px;">
+			{% for news in all_news %}
+			<!-- News Box -->
+			
+			  <center>
+			    
+					<a href="/detail/{{news.id}}">
+					<img src="media/{{news.image}}" width="128"	height="190" alt="{{news.title}}" border="0">
+					</a>
+			    
+			        <p class="card-title"><a href="/detail/{{news.id}}" >{{news.title}}</a></p>		
+			  </center>
+			<br/>
+			{% endfor %}
+		</div>
+		
+		
+	</div>
 </main>
 {% endblock %}

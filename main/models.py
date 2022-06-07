@@ -1,5 +1,5 @@
 from django.db import models
-from datetime import date
+from django.utils import timezone
 
 class Category(models.Model):
     title=models.CharField(max_length=200)
@@ -18,7 +18,7 @@ class News(models.Model):
     image=models.ImageField(upload_to='imgs/')
     detail=models.TextField()
     add_time=models.DateTimeField(auto_now_add=True)
-    year_of_release=models.DateField(default=date.today)
+    year_of_release=models.DateField(default=timezone.now)
     class Meta:
         verbose_name_plural='News'
 
@@ -31,10 +31,11 @@ class Comment(models.Model):
     name=models.CharField(max_length=100)
     email=models.CharField(max_length=200)
     comment=models.TextField()
-    status=models.BooleanField(default=False)
+    status=models.BooleanField(default=True)
 
     def __str__(self):
         return self.comment
+
 
 
 class Actor(models.Model):

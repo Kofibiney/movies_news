@@ -3,9 +3,9 @@
 {% load static  %}
 
 <main class="container mt-3 mb-5">
-<link rel="stylesheet" href="{% static 'style.css' %}">
 	<!-- featured news -->
-	<div class="row my-3">
+	<div class="row">
+		
 		<!-- Left -->
 		<div class="col-md-7">
 			<div class="card mb-3">
@@ -19,13 +19,15 @@
 		</div>
 
 		<!-- Right -->
-		<div class="col-md-5" style="max-height: 450px; overflow: auto;">
+		<div class="col-md-5" style=" overflow: auto;">
 			{% for news in three_news %}
 			<!-- News Box -->
-			<div class="card">
+			<div class="card ">
 			  <div class="row no-gutters">
 			    <div class="col-md-4">
+					<a href="/detail/{{news.id}}">
 					<img src="media/{{news.image}}" class="card-img-top" alt="{{news.title}}">
+				</a>
 			    </div>
 			    <div class="col-md-8">
 			      <div class="card-body">
@@ -49,11 +51,13 @@
 			<!-- News box -->
 			<div class="col-md-3">
 				<div class="card mb-3 shadow">
+					<a href="/detail/{{news.id}}">	
 				<img src="/media/{{news.image}}" class="card-img-top" alt="{{news.title}}">
+					</a>
 				<div class="card-body">
 					<h5 class="card-title">{{news.title}}</h5>
 					<hr/>
-					<p class="card-text"><a href="#" class="btn btn-sm btn-primary">Read Full</a></p>
+					<p class="card-text"><a href="/detail/{{news.id}}" class="btn btn-sm btn-primary">Read Full</a></p>
 				</div>
 				</div>
 			</div>

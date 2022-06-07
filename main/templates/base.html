@@ -9,10 +9,21 @@
 	<script type="text/javascript" src="{% static 'vendor/jquery.min.js' %}"></script>
 	<!-- Bootstrap Js -->
 	<script type="text/javascript" src="{% static '/vendor/bs4/bootstrap.min.js' %}"></script>
+	<link rel="stylesheet" href="{% static 'style.css' %}">
 </head>
 <body>
 	<!-- Top News -->
 	<nav id="custom-navbar" class="navbar navbar-expand-lg navbar-dark bg-danger" >
+		<div class="nav-item dropdown">
+			<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Year</a>
+			<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+				{% for movie in movies %}
+				<li>
+					<a  class="dropdown-item" href="{% url 'show-movie-by-year' movie.year_of_release.year %}">{{movie.year_of_release.year}}</a></li>
+				{% endfor %}
+
+			</ul>
+		</div>
 		<div class="container">
 		  <a class="navbar-brand" href="/">Movie News</a>
 		  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -22,14 +33,6 @@
 		    <ul class="navbar-nav ml-auto">
 		      <li class="nav-item active">
 		        <a class="nav-link" href="/">Home</a>
-		      </li>
-			  <li>
-				  <span>Year:</span>
-				  <ul>
-					  {% for movie in movies %}
-					  	<li>{{movie.year_of_release}}</li>
-					  {% endfor %}
-				  </ul>
 			  </li>
 		      <li class="nav-item">
 		        <a class="nav-link" href="{% url 'all-news' %}">All News</a>
@@ -47,11 +50,11 @@
 
 <hr/>
 <footer class="text-muted">
-  <div class="container">
+  <div class="container" style="text-align: center;">
     <p class="float-right">
       <a href="#">Back to top</a>
     </p>
-    <p>Fast News is example of <a href="https://projectsplaza.com/">Django Projects</a>, but please download and customize it for yourself!</p>
+    <a class="navbar-brand" href="/" style="display:inline-block">Movie News</a>
   </div>
 </footer>
 </body>

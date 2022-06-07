@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static  %}
+<main>
+    <div>
+        {% for movie in movies %}
+            {% if movie.year_of_release.year %}
+                <div>
+                    {{movie.title}}
+                    <img src="{{movie.media.image.url}}" alt="">
+                    {{movie.detail}}
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+</main>
+{% endblock content %}

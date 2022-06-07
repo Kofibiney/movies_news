@@ -1,3 +1,5 @@
+from msilib.schema import ListView
+from multiprocessing import context
 from django.shortcuts import render,redirect
 from django.contrib import messages
 from .models import News, Category,Comment
@@ -6,7 +8,7 @@ def home(request):
     movies = News.objects.all()
 
     first_news=News.objects.first()
-    three_news=News.objects.all()[1:3]
+    three_news=News.objects.all()[1:5]
     three_categories=Category.objects.all()[0:3]
     print('************', movies)
     return render(request,'home.html',{
@@ -16,11 +18,16 @@ def home(request):
         'movies': movies,
     })
 
+
+
 # All News
 def all_news(request):
     all_news=News.objects.all()
+    three_news=News.objects.all()[1:5]
+    print('*************', three_news)
     return render(request,'all-news.html',{
-        'all_news':all_news
+        'all_news':all_news,
+        'three_news':three_news,
     })
 
 # Detail Page
@@ -36,7 +43,7 @@ def detail(request,id):
             email=email,
             comment=comment
         )
-        messages.success(request,'Comment submitted but in moderation mode.')
+        messages.success(request,'Comment submitted.')
     category=Category.objects.get(id=news.category.id)
     rel_news=News.objects.filter(category=category).exclude(id=id)
     comments=Comment.objects.filter(news=news,status=True).order_by('-id')
@@ -52,6 +59,25 @@ def all_category(request):
     return render(request,'category.html',{
         'cats':cats
     })
+
+
+# return all movies by year
+def all_news(request):
+    all_news = News.objects.all()
+    context = {
+        'all_news': all_news,
+    }
+    return render(request, 'all-news.html', context)
+
+def show_movie_by_year(request, year):
+    movies = News.objects.all()
+    retrieved_year = year
+    context = {
+        'movies': movies,
+        'retrieved_year': retrieved_year,
+    }
+    return render(request, 'show_movie_by_year.html', context)
+
 
 
 # Fetch all category
