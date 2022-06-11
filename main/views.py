@@ -2,7 +2,7 @@ from msilib.schema import ListView
 from multiprocessing import context
 from django.shortcuts import render,redirect
 from django.contrib import messages
-from .models import News, Category,Comment
+from .models import News, Category,Comment, Upcoming
 def home(request):
     # New changes
     movies = News.objects.all()
@@ -24,11 +24,21 @@ def home(request):
 def all_news(request):
     all_news=News.objects.all()
     three_news=News.objects.all()[1:5]
-    print('*************', three_news)
+    print('************', three_news)
     return render(request,'all-news.html',{
         'all_news':all_news,
         'three_news':three_news,
     })
+
+def upcoming_movies(request):
+    upcoming_movies=Upcoming.objects.all()
+    print('************', upcoming_movies)
+    return render(request,'all-news.html',{
+        'upcoming_movies':upcoming_movies,
+    })
+
+
+
 
 # Detail Page
 def detail(request,id):

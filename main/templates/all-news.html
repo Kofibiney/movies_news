@@ -4,16 +4,16 @@
 	<h3 class="border-bottom pb-1 my-4">All Movies</h3>
 	<div class="row">
 		<div class="col-sm-2 hidden-xs" style="overflow:auto; padding-right: 2px; padding-left: 2px;">
-			{% for news in all_news %}
-			<!-- News Box -->
+			{% for upcoming in upcoming_movies %}
+			<!-- News Box left -->
 			
 			  <center>
 			    
-					<a href="/detail/{{news.id}}">
-					<img src="media/{{news.image}}" width="128"	height="190" alt="{{news.title}}" border="0">
+					<a href="/detail/{{upcoming.id}}">
+					<img src="media/{{upcoming.image}}" width="128"	height="190" alt="{{upcoming.title}}" border="0">
 					</a>
 			    
-			        <p class="card-title"><a href="/detail/{{news.id}}" >{{news.title}}</a></p>		
+			        <p class="card-title"><a href="/detail/{{upcoming.id}}" >{{upcoming.title}}</a></p>		
 			  </center>
 			<br/>
 			{% endfor %}

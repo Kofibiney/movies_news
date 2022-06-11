@@ -25,6 +25,20 @@ class News(models.Model):
     def __str__(self):
         return self.title
 
+# Upcoming movies
+class Upcoming(models.Model):
+    category=models.ForeignKey(Category,on_delete=models.CASCADE)
+    title=models.CharField(max_length=300)
+    image=models.ImageField(upload_to='imgs/')
+    detail=models.TextField()
+    add_time=models.DateTimeField(auto_now_add=True)
+    year_of_release=models.DateField(default=timezone.now)
+    class Meta:
+        verbose_name_plural='Upcoming Movies'
+
+    def __str__(self):
+        return self.title
+
 # Comments
 class Comment(models.Model):
     news=models.ForeignKey(News,on_delete=models.CASCADE)
