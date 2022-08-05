@@ -1,29 +1,39 @@
 {% extends 'base.html' %}
 {% block content %}
-<main class="container">
-	<h3 class="border-bottom pb-1 my-4">All Movies</h3>
-	<div class="row">
-		<div class="col-sm-2 hidden-xs" style="overflow:auto; padding-right: 2px; padding-left: 2px;">
-			{% for upcoming in upcoming_movies %}
+<main class="container" style="background-color: black;">
+	<h3 class="border-bottom pb-1 my-4" style="color: white;">All Movies</h3>
+	<div class="row" style="background-color: black">
+		<div class="col-sm-2 hidden-xs" style="background-color: #1b1b1b; overflow:auto; padding-right: 2px; padding-left: 2px;">
 			<!-- News Box left -->
 			
-			  <center>
+			<div class="title" style="background-position: 795px bottom; margin-bottom: 10px;">
+				<center>
+					<h5 style="color: white;">
+						<b>Upcoming Movies</b>
+					</h5>
+				</center>
+			</div>
+				<center>
+				  {% for upcoming in upcoming_movies %}
 			    
 					<a href="/detail/{{ upcoming.id }}">
 					<img src="media/{{ upcoming.image }}" width="128"	height="190" alt="{{upcoming.title}}" border="0">
 					</a>
 			    
-			        <p class="card-title"><a href="/detail/{{ upcoming.id }}" >{{upcoming.title}}</a></p>		
-			  </center>
-			<br/>
-			{% endfor %}
+			        <p class="card-title"><a href="/detail/{{ upcoming.id }}" class="link-success">{{upcoming.title}}</a></p>		
+					<br>
+					{% endfor %}
+				</center>
+			<br>
+			<br>
 		</div>
 		
 	
 	
     	<!-- News Box -->
 		
-		<div class="col-sm-8" style=" padding-right: 2px; padding-left: 2px;">
+		<div class="col-sm-8" style="padding-right: 2px; padding-left: 2px;">
+			
 			{% for news in all_news %}
 			<div class="post" style="font-size: 18px; padding-left: 10px; padding-right: 10px;">
 				<div class="row">
@@ -33,30 +43,41 @@
 					</div>
 				
 					<div class="col-xs-8 col-lg-10">
-						<h3 class="card-title"><a href="/detail/{{news.id}}">{{news.title}}</a></h3>
+						<h3 class="card-title" style="color: green;"><a href="/detail/{{news.id}}" class="link-success">{{news.title}}</a></h3>
 						<br>
-						<p class="card-text">{{news.detail}}</p>
+						<p class="card-text" style="color:green;">{{news.detail}}</p>
 					</div>    
 				</div>
 			</div>
 			<hr class="green">
-		{% endfor %}
+			{% endfor %}
 		</div>
 
-		<div class="col-sm-2 hidden-xs" style="overflow:auto; padding-right: 2px; padding-left: 2px;">
-			{% for news in all_news %}
+		<div class="col-sm-2 hidden-xs" style="background-color: #1b1b1b; overflow:auto; padding-right: 2px; padding-left: 2px;">
+			<div class="title" style="background-position: 795px bottom; margin-bottom: 10px;">
+				<center>
+					<h5 style="color: white">
+						<b>Top 10 Box Office</b>
+					</h5>
+				</center>
+			</div>
+			
 			<!-- News Box -->
 			
 			  <center>
-			    
+				{% for news in all_news %}    
 					<a href="/detail/{{news.id}}">
 					<img src="media/{{news.image}}" width="128"	height="190" alt="{{news.title}}" border="0">
 					</a>
 			    
-			        <p class="card-title"><a href="/detail/{{news.id}}" >{{news.title}}</a></p>		
-			  </center>
-			<br/>
-			{% endfor %}
+			        <p class="card-title"><a href="/detail/{{news.id}}" >{{news.title}}</a></p>
+					<br>
+				{% endfor %}
+			
+				</center>
+			<br>
+			<br>
+			
 		</div>
 		
 		

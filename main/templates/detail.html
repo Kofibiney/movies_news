@@ -4,23 +4,23 @@
 	<!-- featured news -->
 	<div class="row my-3">
 		<!-- Left -->
-		<div class="col-md-8">
-			<div class="card mb-3">
+		<div class="col-md-8" style="background-color: #1b1b1b;">
+			<div class="card mb-3" style="background-color: #1b1b1b;">
                 <img src="/media/{{news.image}}" class="card-img-top" alt="{{news.title}}">
 			  <div class="card-body">
-			    <h5 class="card-title">{{news.title}}</h5>
+			    <h5 class="card-title" style="color: green;">{{news.title}}</h5>
 			    <hr/>
-			    <p class="card-text">{{news.detail}}</p>
+			    <p class="card-text" style="color: green;">{{news.detail}}</p>
 			  </div>
-			  <div class="card-footer">
+			  <div class="card-footer" style="color: green;">
 			  	In <a href="/category/{{news.category.id}}">{{news.category.title}}</a>
 			  </div>
 			</div>
 
 			<!-- Comments -->
-			<div class="card my-4">
+			<div class="card my-4" >
 				<h6 class="card-header">Add Comment</h6>
-				<div class="card-body">
+				<div class="card-body" >
 					{% for message in messages %}
 					<p class="text-success">{{message}}</p>
 					{% endfor %}
@@ -44,13 +44,13 @@
 								<textarea class="form-control" name="message" required></textarea>
 							</div>
 						</div>
-						<input type="submit" class="btn btn-primary" />
+						<input type="submit" class="btn btn-primary btn-success" />
 					</form>
 				</div>
 			</div>
 			<!-- Previous Comments -->
 			<div class="card my-4">
-				<h6 class="card-header">Comments</h6>
+				<h6 class="card-header" style="color: white;">Comments</h6>
 				<div class="card-body">
 					{% for comment in comments %}
 					<blockquote class="blockquote text-right">
@@ -64,15 +64,15 @@
 		</div>
 		<!-- Related News -->
 		<div class="col-md-4">
-			<h3 class="mb-3 border-bottom pb-1">From this Category</h3>
+			<h3 class="mb-3 border-bottom pb-1" style="color: green;">From this Category</h3>
 			<!-- Category Box -->
 			{% for news in related_news %}
-			<div class="card mb-3 shadow">
+			<div class="card mb-3 shadow" style="background-color: #1b1b1b;">
                 <img src="/media/{{news.image}}" class="card-img-top" alt="{{news.title}}">
 			  <div class="card-body">
-			    <h5 class="card-title">{{news.title}}</h5>
+			    <h5 class="card-title" style="color: green;">{{news.title}}</h5>
 			    <hr/>
-			    <p class="card-text"><a href="/detail/{{news.id}}" class="btn btn-sm btn-primary">Read Full</a></p>
+			    <p class="card-text" ><a href="/detail/{{news.id}}" class="btn btn-sm btn-primary btn-success" >Read Full</a></p>
 			  </div>
 			</div>
 			{% endfor %}

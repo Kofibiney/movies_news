@@ -1,3 +1,12 @@
-.navbar{
-    background-color: aqua;
+.custom-navbar{
+    color: rgb(0, 128, 0) !important;
+}
+body{
+    background-color: black !important;
+}
+hr.green{
+    margin-top: 20px !important;
+    margin-bottom: 20px !important;
+    border: 0 !important;
+    border-top: 1px solid  rgb(0 128 0) !important;
 }

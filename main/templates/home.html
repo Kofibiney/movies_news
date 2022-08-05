@@ -8,21 +8,21 @@
 		
 		<!-- Left -->
 		<div class="col-md-7">
-			<div class="card mb-3">
+			
 			  <img src="media/{{first_news.image}}" class="card-img-top" alt="{{first_news.title}}">
-			  <div class="card-body">
-			    <h5 class="card-title">{{first_news.title}}</h5>
-			    <hr/>
-			    <p class="card-text"><a href="/detail/{{first_news.id}}" class="btn btn-sm btn-primary">Read Full</a></p>
+			  <div class="card-body" style="background-color: #1b1b1b;">
+			    <h5 class="card-title" style="color: white;">{{first_news.title}}</h5>
+			    <hr class="green">
+			    <p class="card-text"><a href="/detail/{{first_news.id}}" class="btn btn-sm btn-primary btn-success">Read Full</a></p>
 			  </div>
-			</div>
+			
 		</div>
 
 		<!-- Right -->
-		<div class="col-md-5" style=" overflow: auto;">
+		<div class="col-md-5" style="background-color: #1b1b1b; overflow: auto;">
 			{% for news in three_news %}
 			<!-- News Box -->
-			<div class="card ">
+			
 			  <div class="row no-gutters">
 			    <div class="col-md-4">
 					<a href="/detail/{{news.id}}">
@@ -31,33 +31,33 @@
 			    </div>
 			    <div class="col-md-8">
 			      <div class="card-body">
-			        <h5 class="card-title">{{news.title}}</h5>
-			        <p class="card-text"><a href="/detail/{{news.id}}" class="btn btn-sm btn-primary">Read Full</a></p>
+			        <h5 class="card-title" style="color: white;">{{news.title}}</h5>
+			        <p class="card-text"><a href="/detail/{{news.id}}" class="btn btn-sm btn-success">Read Full</a></p>
 			      </div>
 			    </div>
 			  </div>
-			</div>
-			<hr/>
+			
+			<hr class="green">
 			{% endfor %}
 		</div>
 	</div>
 	<!-- Category Wise News -->
 	{% for category in three_categories %}
-	<h3 class="border-bottom pb-1">{{category.title}} <a href="/category/{{category.id}}" class="float-right btn btn-sm btn-dark">In this Category</a></h3>
-	<div class="row my-4">
+	<h3 class="border-bottom pb-1" style="color: white;">{{category.title}} <a href="/category/{{category.id}}" class="float-right btn btn-sm btn-dark">In this Category</a></h3>
+	<div class="row my-4" style="background-color: #1b1b1b;">
 		
 		{% for news in category.news_set.all %}
 			{% if forloop.counter < 5 %}
 			<!-- News box -->
 			<div class="col-md-3">
-				<div class="card mb-3 shadow">
+				<div class="shadow">
 					<a href="/detail/{{news.id}}">	
 				<img src="/media/{{news.image}}" class="card-img-top" alt="{{news.title}}">
 					</a>
 				<div class="card-body">
-					<h5 class="card-title">{{news.title}}</h5>
+					<h5 class="card-title" style="color: white;">{{news.title}}</h5>
 					<hr/>
-					<p class="card-text"><a href="/detail/{{news.id}}" class="btn btn-sm btn-primary">Read Full</a></p>
+					<p class="card-text"><a href="/detail/{{news.id}}" class="btn btn-sm btn-primary btn-success">Read Full</a></p>
 				</div>
 				</div>
 			</div>
