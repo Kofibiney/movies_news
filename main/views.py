@@ -1,6 +1,4 @@
-from msilib.schema import ListView
-from multiprocessing import context
-from django.shortcuts import render,redirect
+from django.shortcuts import render
 from django.contrib import messages
 from .models import News, Category,Comment, Upcoming
 def home(request):

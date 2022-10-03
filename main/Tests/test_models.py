@@ -1,11 +1,7 @@
-from email.mime import image
-from tkinter import W
-from turtle import title
-
 from django.test import TestCase
-import tempfile
-from main.models import Category, Actor, News, Comment
-from main.views import category
+
+from main.models import Category, News
+
 
 class TestModels(TestCase):
     def setUp(self):
